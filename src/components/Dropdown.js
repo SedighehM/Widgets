@@ -11,7 +11,9 @@ const Dropdown = ({ label, options, selected, onSelectedChange }) => {
     };
     document.body.addEventListener("click", onBodyCLick, { capture: true });
     return () => {
-      document.body.removeEventListener("click", onBodyCLick);
+      document.body.removeEventListener("click", onBodyCLick, {
+        capture: true,
+      });
     };
   }, []);
   const renderedOptions = options.map((option) => {
